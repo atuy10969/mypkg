@@ -11,7 +11,6 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
-        ('share/mypkg/launch', ['launch/talk_listen.launch.py']),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name), glob('launch/*.launch.py'))
     ],
@@ -26,6 +25,8 @@ setup(
         'console_scripts': [
             'talker = mypkg.talker:main',
             'listener = mypkg.listener:main',
-            ],
+            'omikuji_publisher = mypkg.omikuji_publisher:main',  # 新規エントリーポイント
+        ],
     },
 )
+
