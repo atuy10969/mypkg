@@ -1,12 +1,11 @@
 # Omikuji Publisher (ROS 2)
 宿題２
+
 ## 概要
-このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。トピックに配信されたおみくじの結果は、他のノードから受信することもできます。このプログラムは単体で動作するように設計されています。
-## インストール方法
-~~~
-$ https://github.com/atuy10969/mypkg.git
-$ cd ros2_ws
-~~~
+このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。トピックに配信されたおみくじの結果は、他のノードから受信することもできます。このプログラムは単体で動作するように設計されています.
+[![test](https://github.com/atuy10969/mypkg/actions/workflows/test.yml/badge.svg)]
+(https://github.com/atuy10969/mypkg/actions/workflows/test.yml)
+
 ## 実行方法
 ~~~
 $ ros2 run mypkg omikuji_publisher
