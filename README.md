@@ -4,7 +4,7 @@
 このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。トピックに配信されたおみくじの結果は、他のノードから受信することもできます。このプログラムは単体で動作するように設計されています。
 ## インストール方法
 ~~~
-$ git clone https://github.com/atuy109/omikujipublisher.git
+$ https://github.com/atuy10969/mypkg.git
 $ cd ros2_ws
 ~~~
 ## 実行方法
