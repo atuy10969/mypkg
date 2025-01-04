@@ -1,23 +1,7 @@
 # Omikuji Publisher (ROS 2)
-
+宿題２
 ## 概要
 このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。トピックに配信されたおみくじの結果は、他のノードから受信することもできます。このプログラムは単体で動作するように設計されています。
-
-## ファイル構成
-
-```
-ros2_ws/
-├── src/
-│   ├── mypkg/
-│   │   ├── mypkg/
-│   │   │   ├── __init__.py
-│   │   │   ├── omikuji_publisher.py  # Omikuji Publisher ノード
-│   │   ├── resource/
-│   │   ├── setup.py
-│   │   ├── package.xml
-│   │   ├── launch/
-│   │   │   ├── talk_listen.launch.py  # Launch ファイル
-```
 
 ## メインノード説明
 
