@@ -38,7 +38,7 @@ $ ros2 run mypkg omikuji_publisher
 ## テスト環境
 - ubuntu-20.04
 ## 作成者
-23C1041 
+23C1041 甘中雄太
 未来ロボティクス学科所属
 ## ライセンスや著作権
  - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可される
@@ -49,6 +49,6 @@ $ ros2 run mypkg omikuji_publisher
     - [https://ryuichiueda.github.io/slides_marp/robosys2024/lesson10.html](https://ryuichiueda.github.io/slides_marp/robosys2024/lesson10.html)
     - [https://ryuichiueda.github.io/slides_marp/robosys2024/lesson11.html](https://ryuichiueda.github.io/slides_marp/robosys2024/lesson11.html)
 
--2025 YUTA KANNAKA
+-2025 Yuta Kannaka
 
 
