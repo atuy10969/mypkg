@@ -23,12 +23,11 @@ $ ros2 run mypkg omikuji_publisher
 [INFO] [1735976844.639791235] [omikuji_publisher]: トピック 'omikuji' に配信中: 小吉
 ~~~
 
-### omikuji_publisher.py
-- **定義**: おみくじの結果をトピックに配信するパブリッシャーノード
-- **トピック名**: `omikuji`
-- **使用メッセージ**:
-  - `std_msgs/String` 型のメッセージを配信
-  - 配信内容: おみくじの結果 (`大吉`, `中吉`, `小吉`, etc.)
+### ノード名: omikuji_publisher
+
+概要: おみくじの結果をランダムに生成し、トピックに配信する ROS 2 ノードです。
+
+役割: トピック omikuji に、おみくじの結果（例: 大吉、中吉）と関連する一言メッセージを送信します。
 
 ## 必要なソフトウェア
 - python
