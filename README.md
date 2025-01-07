@@ -1,64 +1,61 @@
 # Omikuji Publisher (ROS 2)
+宿題２
 
 ## 概要
-このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。トピックに配信されたおみくじの結果は、他のノードから受信することもできます。このプログラムは単体で動作するように設計されています。
+このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。トピックに配信されたおみくじの結果は、他のノードから受信することもできます。このプログラムは単体で動作するように設計されています.
+[![test](https://github.com/atuy10969/mypkg/actions/workflows/test.yml/badge.svg)]
+(https://github.com/atuy10969/mypkg/actions/workflows/test.yml)
+## ソースコードの場所
 
-## ファイル構成
+- おみくじパブリッシャーのメインスクリプト:
+  `src/mypkg/mypkg/omikuji_publisher.py`
 
-```
-ros2_ws/
-├── src/
-│   ├── mypkg/
-│   │   ├── mypkg/
-│   │   │   ├── __init__.py
-│   │   │   ├── omikuji_publisher.py  # Omikuji Publisher ノード
-│   │   ├── resource/
-│   │   ├── setup.py
-│   │   ├── package.xml
-│   │   ├── launch/
-│   │   │   ├── talk_listen.launch.py  # Launch ファイル
-```
+- テストスクリプト:
+  `src/mypkg/mypkg2/test.bash`
 
-## メインノード説明
+上記のファイルを参照してください。
 
-### omikuji_publisher.py
-- **定義**: おみくじの結果をトピックに配信するパブリッシャーノード
-- **トピック名**: `omikuji`
-- **使用メッセージ**:
-  - `std_msgs/String` 型のメッセージを配信
-  - 配信内容: おみくじの結果 (`大吉`, `中吉`, `小吉`, etc.)
+## 実行方法
+~~~
+$ ros2 run mypkg omikuji_publisher
+~~~
+結果
+~~~
+[INFO] [1735976836.660467563] [omikuji_publisher]: トピック 'omikuji' に配信中: 大吉
+[INFO] [1735976837.638824056] [omikuji_publisher]: トピック 'omikuji' に配信中: 中吉
+[INFO] [1735976838.639043427] [omikuji_publisher]: トピック 'omikuji' に配信中: 凶
+[INFO] [1735976839.640024135] [omikuji_publisher]: トピック 'omikuji' に配信中: 大吉
+[INFO] [1735976840.639764321] [omikuji_publisher]: トピック 'omikuji' に配信中: 中吉
+[INFO] [1735976841.639819600] [omikuji_publisher]: トピック 'omikuji' に配信中: 小吉
+[INFO] [1735976842.639284936] [omikuji_publisher]: トピック 'omikuji' に配信中: 大吉
+[INFO] [1735976843.638856091] [omikuji_publisher]: トピック 'omikuji' に配信中: 吉
+[INFO] [1735976844.639791235] [omikuji_publisher]: トピック 'omikuji' に配信中: 小吉
+~~~
 
-### setup.py
-- パッケージのビルドコンフィグを定義
-- **エントリーポイント**:
-  - `omikuji_publisher = mypkg.omikuji_publisher:main`
+### ノード名: omikuji_publisher
 
-### talk_listen.launch.py
-- **定義**: `omikuji_publisher` を含むノードをランチファイルを使って起動
+概要: おみくじの結果をランダムに生成し、トピックに配信する ROS 2 ノードです。
 
-## 使用手順
+役割: トピック omikuji に、おみくじの結果（例: 大吉、中吉）と関連する一言メッセージを送信します。
 
-### 1. ビルド
-ROS 2 ワークスペースをビルドします:
-```bash
-cd ~/ros2_ws
-colcon build
-source install/setup.bash
-```
+## 必要なソフトウェア
+- python
+  
+- ROS2
+## テスト環境
+- ubuntu-20.04
+## 作成者
+23C1041 甘中雄太
+未来ロボティクス学科所属
+## ライセンスや著作権
+ - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可される
 
-### 2. ノード実行
-`omikuji_publisher` を実行:
-```bash
-ros2 run mypkg omikuji_publisher
-```
+ - このパッケージのコードは、下記のスライド　(CC-BY-SA 4.0 by Ryuichi Ueda)のものを、本人の許可を得て自身の著作としたものです。
+    - [https://ryuichiueda.github.io/slides_marp/robosys2024/lesson8.html](https://ryuichiueda.github.io/slides_marp/robosys2024/lesson8.html)
+    - [https://ryuichiueda.github.io/slides_marp/robosys2024/lesson9.html](https://ryuichiueda.github.io/slides_marp/robosys2024/lesson9.html)
+    - [https://ryuichiueda.github.io/slides_marp/robosys2024/lesson10.html](https://ryuichiueda.github.io/slides_marp/robosys2024/lesson10.html)
+    - [https://ryuichiueda.github.io/slides_marp/robosys2024/lesson11.html](https://ryuichiueda.github.io/slides_marp/robosys2024/lesson11.html)
 
-### 3. トピック内容の確認
-トピック配信内容を確認:
-```bash
-ros2 topic echo /omikuji
-```
+-2025 Yuta Kannaka
 
-## ノート
-- このノードは教育用のサンプルであり、コードを抽象化した環境での使用を仮定しています。
-- サブスクライバーが存在しない場合でも、パブリッシャーとして正常に動作します。
 
