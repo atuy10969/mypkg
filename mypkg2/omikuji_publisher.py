@@ -8,6 +8,7 @@ class OmikujiPublisher(Node):
         super().__init__('omikuji_publisher')
         self.publisher_ = self.create_publisher(String, 'omikuji', 10)
         self.timer = self.create_timer(1.0, self.publish_omikuji)
+        self.count = 0  # パブリッシュ回数を記録
         self.get_logger().info("Omikuji Publisher ノードが起動しました！")
 
     def publish_omikuji(self):
@@ -22,7 +23,15 @@ class OmikujiPublisher(Node):
         msg = String()
         msg.data = f"結果: {result[0]}, 一言: {result[1]}"
         self.publisher_.publish(msg)
-        self.get_logger().info(f"おみくじ結果を発行しました: {msg.data}")
+        
+        # パブリッシュの回数を増やす
+        self.count += 1
+        
+        # 修正: パブリッシュした内容を直接ログに出さない
+        self.get_logger().info(f"{self.count} 回目のおみくじをトピック 'omikuji' にパブリッシュしました。")
+
+        # デバッグレベルで詳細を表示したい場合のみ使用
+        self.get_logger().debug(f"パブリッシュされた内容: {msg.data}")
 
 def main(args=None):
     rclpy.init(args=args)
