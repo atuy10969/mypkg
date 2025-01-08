@@ -2,7 +2,8 @@
 宿題２
 
 ## 概要
-このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。トピックに配信されたおみくじの結果は、他のノードから受信することもできます。このプログラムは単体で動作するように設計されています.
+このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。ランダムに生成したおみくじの結果をトピック /omikuji に配信します。
+
 [![test](https://github.com/atuy10969/mypkg/actions/workflows/test.yml/badge.svg)]
 (https://github.com/atuy10969/mypkg/actions/workflows/test.yml)
 ## ソースコードの場所
@@ -13,23 +14,37 @@
 - テストスクリプト:
   `src/mypkg/mypkg2/test.bash`
 
-上記のファイルを参照してください。
+mypkgがsubmoduleになってしまい、何度も試して変更を試みたのですがgithub上から作成したものを見ることができないので、お手数をおかけしますが上記のファイルを参照してください。
 
-## 実行方法
+## コマンドと実行例
+
+**端末1**
 ~~~
 $ ros2 run mypkg omikuji_publisher
 ~~~
-結果
+
+**端末2**
 ~~~
-[INFO] [1735976836.660467563] [omikuji_publisher]: トピック 'omikuji' に配信中: 大吉
-[INFO] [1735976837.638824056] [omikuji_publisher]: トピック 'omikuji' に配信中: 中吉
-[INFO] [1735976838.639043427] [omikuji_publisher]: トピック 'omikuji' に配信中: 凶
-[INFO] [1735976839.640024135] [omikuji_publisher]: トピック 'omikuji' に配信中: 大吉
-[INFO] [1735976840.639764321] [omikuji_publisher]: トピック 'omikuji' に配信中: 中吉
-[INFO] [1735976841.639819600] [omikuji_publisher]: トピック 'omikuji' に配信中: 小吉
-[INFO] [1735976842.639284936] [omikuji_publisher]: トピック 'omikuji' に配信中: 大吉
-[INFO] [1735976843.638856091] [omikuji_publisher]: トピック 'omikuji' に配信中: 吉
-[INFO] [1735976844.639791235] [omikuji_publisher]: トピック 'omikuji' に配信中: 小吉
+$ ros2 topic echo /omikuji
+~~~
+
+## 実行例
+~~~
+data: '結果: 末吉, 一言: 少し運が味方します。'
+---
+data: '結果: 小吉, 一言: 少しだけ良いことがあります。'
+---
+data: '結果: 末吉, 一言: 少し運が味方します。'
+---
+data: '結果: 大吉, 一言: 今日は最高の一日になります！'
+---
+data: '結果: 小吉, 一言: 少しだけ良いことがあります。'
+---
+data: '結果: 大吉, 一言: 今日は最高の一日になります！'
+---
+data: '結果: 末吉, 一言: 少し運が味方します。'
+---
+data: '結果: 大吉, 一言: 今日は最高の一日になります！'
 ~~~
 
 ### ノード名: omikuji_publisher
@@ -38,10 +53,11 @@ $ ros2 run mypkg omikuji_publisher
 
 役割: トピック omikuji に、おみくじの結果（例: 大吉、中吉）と関連する一言メッセージを送信します。
 
-## 必要なソフトウェア
-- python
-  
-- ROS2
+## システム環境
+
+- **OS:** Ubuntu 20.04.6 LTS (Focal Fossa)
+- **ROS 2 Distribution:** Foxy
+
 ## テスト環境
 - ubuntu-20.04
 ## 作成者
