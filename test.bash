@@ -1,33 +1,32 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2024 Yuta Kannaka
+# SPDX-License-Identifier: BSD-3-Clause
 
-# テストスクリプトの開始
-echo "=== おみくじシステムテスト開始 ==="
+# テスト用スクリプト: omikuji_publisher の動作確認
 
-# デフォルトディレクトリ
-dir=~
-[ "$1" != "" ] && dir="$1"
+# ROS 2 ワークスペースのディレクトリ
+ws_dir=~/ros2_ws
 
-# ROS 2 ワークスペースへ移動
-cd $dir/ros2_ws || { echo "指定されたディレクトリが存在しません: $dir/ros2_ws"; exit 1; }
+# ワークスペースへ移動
+cd $ws_dir || { echo "ワークスペースが見つかりません: $ws_dir"; exit 1; }
 
-# ビルドと環境設定
-echo "ワークスペースをビルド中..."
+# ワークスペースをビルド
 colcon build || { echo "ビルドに失敗しました"; exit 1; }
-source $dir/ros2_ws/install/setup.bash
 
-# テスト用にノードを一定時間起動
-echo "Omikuji Publisher ノードを起動します..."
-timeout 10 ros2 run mypkg omikuji_publisher | tee /tmp/mypkg_test.log
+# ROS 2 環境をソース
+source install/setup.bash || { echo "セットアップに失敗しました"; exit 1; }
 
-# ログファイルの内容を確認
-echo "ログファイルの結果を解析中..."
-cat /tmp/mypkg_test.log | grep -E '回目のおみくじをパブリッシュしました。'
+# omikuji_publisher を起動して 5 秒間実行
+timeout 5s ros2 run mypkg omikuji_publisher > /tmp/omikuji_test.log 2>&1 || {
+    echo "ノードの起動に失敗しました";
+    exit 1;
+}
 
-# テスト結果表示
-if [ $? -eq 0 ]; then
-    echo "=== おみくじシステムテスト成功！ ==="
+# 結果の確認: 発行されたメッセージをチェック
+if grep -q "おみくじ結果を発行しました: 結果: \\(大吉\\|中吉\\|小吉\\|末吉\\|凶\\), 一言:" /tmp/omikuji_test.log; then
+    echo "テスト成功: おみくじの結果が正しく出力されました"
+    cat /tmp/omikuji_test.log
 else
-    echo "=== おみくじシステムテスト失敗 ==="
-    echo "ログを確認してください: /tmp/mypkg_test.log"
+    echo "テスト失敗: 出力内容が期待通りではありません"
+    exit 1
 fi
-
