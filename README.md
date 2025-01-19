@@ -59,7 +59,8 @@ data: '結果: 大吉, 一言: 今日は最高の一日になります！'
 
 ## テスト環境
 - ubuntu-20.04
-- 
+- GitHub Actions
+
 ## ライセンスや著作権
  - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可される
 
@@ -69,6 +70,7 @@ data: '結果: 大吉, 一言: 今日は最高の一日になります！'
     - [https://ryuichiueda.github.io/slides_marp/robosys2024/lesson10.html](https://ryuichiueda.github.io/slides_marp/robosys2024/lesson10.html)
     - [https://ryuichiueda.github.io/slides_marp/robosys2024/lesson11.html](https://ryuichiueda.github.io/slides_marp/robosys2024/lesson11.html)
 
--2025 Yuta Kannaka
+- 2025 Yuta Kannaka
+
 
 
