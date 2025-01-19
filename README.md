@@ -6,15 +6,7 @@
 
 [![test](https://github.com/atuy10969/mypkg/actions/workflows/test.yml/badge.svg)]
 (https://github.com/atuy10969/mypkg/actions/workflows/test.yml)
-## ソースコードの場所
 
-- おみくじパブリッシャーのメインスクリプト:
-  `src/mypkg/mypkg/omikuji_publisher.py`
-
-- テストスクリプト:
-  `src/mypkg/mypkg2/test.bash`
-
-mypkgがsubmoduleになってしまい、何度も試して変更を試みたのですがgithub上から作成したものを見ることができないので、お手数をおかけしますが上記のファイルを参照してください。
 
 ## コマンドと実行例
 
@@ -60,9 +52,7 @@ data: '結果: 大吉, 一言: 今日は最高の一日になります！'
 
 ## テスト環境
 - ubuntu-20.04
-## 作成者
-23C1041 甘中雄太
-未来ロボティクス学科所属
+- 
 ## ライセンスや著作権
  - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可される
 
