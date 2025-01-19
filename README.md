@@ -2,10 +2,11 @@
 宿題２
 
 ## 概要
-このプロジェクトは ROS 2 を使用して、おみくじの結果をトピックに配信するノード「Omikuji Publisher」を作成しました。ランダムに生成したおみくじの結果をトピック /omikuji に配信します。
+このプロジェクトは、ROS 2 のパッケージとして「Omikuji Publisher」を作成しました。ランダムに生成したおみくじの結果をトピック /omikuji に配信します。
 
-[![test](https://github.com/atuy10969/mypkg/actions/workflows/test.yml/badge.svg)]
-(https://github.com/atuy10969/mypkg/actions/workflows/test.yml)
+
+[![test](https://github.com/atuy10969/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/atuy10969/mypkg/actions/workflows/test.yml)
+
 
 
 ## コマンドと実行例
@@ -44,6 +45,12 @@ data: '結果: 大吉, 一言: 今日は最高の一日になります！'
 概要: おみくじの結果をランダムに生成し、トピックに配信する ROS 2 ノードです。
 
 役割: トピック omikuji に、おみくじの結果（例: 大吉、中吉）と関連する一言メッセージを送信します。
+
+## テスト環境
+- 自動テスト: GitHub Actions を使用
+  - テスト内容: パッケージのビルドおよび動作確認
+  - [GitHub Actions ワークフローはこちら](https://github.com/atuy10969/mypkg/actions/workflows/test.yml)
+
 
 ## システム環境
 
